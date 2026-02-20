@@ -82,6 +82,38 @@
           "remoteRoot": "/usr/src/homeassistant"
         }
       ]
+    },
+    {
+        "name": "Debug Pytest (Current File)",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "pytest",
+        "args": [
+            "${file}",
+            "-v",
+            "-s",
+            "--tb=short"
+        ],
+        "console": "integratedTerminal",
+        "justMyCode": false,
+        "env": {
+            "PYTHONPATH": "${workspaceFolder}"
+        }
+    },
+    {
+        "name": "Debug Specific Test",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "pytest",
+        "args": [
+            "tests/test_config_flow.py::test_login_flow_success",
+            "-v",
+            "-s"
+        ],
+        "console": "integratedTerminal",
+        "justMyCode": false
     }
   ]
+
+
 }
